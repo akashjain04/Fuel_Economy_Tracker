@@ -90,7 +90,7 @@ public class HomeActivity extends AppCompatActivity {
             dataBase.execSQL("DELETE FROM FUEL_DATA");
             Toast.makeText(this, "Deleted all records.", Toast.LENGTH_SHORT).show();
         }catch (Exception ex){
-            Toast.makeText(HomeActivity.this, "Error: "+ ex.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(HomeActivity.this, "No records found!!", Toast.LENGTH_SHORT).show();
         }
     }
 }

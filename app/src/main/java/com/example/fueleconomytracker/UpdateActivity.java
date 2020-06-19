@@ -18,6 +18,8 @@ public class UpdateActivity extends AppCompatActivity {
     Button update;
     SQLiteDatabase dataBase;
     int id;
+    boolean flag;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +38,11 @@ public class UpdateActivity extends AppCompatActivity {
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if(flag) {
+                    Toast.makeText(UpdateActivity.this, "Looks like you have not entered any values yet :(", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 long odometerValue = Long.parseLong(odometerReading.getText().toString());
                 double fuelLiters = Double.parseDouble(fuelInLiters.getText().toString());
                 double totalCost = Double.parseDouble(TotalCost.getText().toString());
@@ -49,7 +56,7 @@ public class UpdateActivity extends AppCompatActivity {
                     );
                     Toast.makeText(UpdateActivity.this, "Updated Successfully!", Toast.LENGTH_SHORT).show();
                 }catch (Exception ex){
-                    Toast.makeText(UpdateActivity.this, "Error : "+ ex.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdateActivity.this, "Something is wrong!!", Toast.LENGTH_SHORT).show();
                 }
 
                 odometerReading.setText("");
@@ -79,7 +86,8 @@ public class UpdateActivity extends AppCompatActivity {
             TotalCost.setText(String.valueOf(fuelCost));
         }
         catch (Exception ex){
-            Toast.makeText(this, "Error :" + ex.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Looks like you have not entered any values yet :(", Toast.LENGTH_SHORT).show();
+            flag = true;
         }
 
         return;

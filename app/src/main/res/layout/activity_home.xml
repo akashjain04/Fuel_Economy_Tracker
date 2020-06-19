@@ -44,7 +44,7 @@
         android:layout_width="341dp"
         android:layout_height="83dp"
         android:background="@drawable/custom_button"
-        android:text="View Results"
+        android:text="View Economy"
         android:textColor="@android:color/background_light"
         android:textSize="24sp"
         android:textStyle="bold"

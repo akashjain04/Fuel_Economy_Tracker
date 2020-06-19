@@ -34,6 +34,11 @@ public class MainActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if(odometerReading.getText().toString().equals("")  || fuelInLiters.getText().toString().equals("") || TotalCost.getText().toString().equals("")){
+                    Toast.makeText(MainActivity.this, "Please fill in all the details.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 try{
                     //Create a database if it not exists or open an existing database.
                     dataBase = openOrCreateDatabase("dataBase",MODE_PRIVATE,null);
@@ -48,6 +53,11 @@ public class MainActivity extends AppCompatActivity {
                     double fuelLiters = Double.parseDouble(fuelInLiters.getText().toString());
                     double totalCost = Double.parseDouble(TotalCost.getText().toString());
 
+                    if(odometerValue == 0 || fuelLiters == 0 || totalCost == 0)
+                    {
+                        Toast.makeText(MainActivity.this, "Please enter valid data", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
                     dataBase.execSQL(
                             "INSERT INTO FUEL_DATA(ODOMETER, FUEL_FILLED, FUEL_COST) VALUES ("+odometerValue+","+fuelLiters+","+totalCost+");"
                     );
