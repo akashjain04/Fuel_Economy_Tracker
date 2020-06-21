@@ -1,6 +1,6 @@
 # Fuel Economy Tracker.
 
-The Fuel Economy Tracker is an application developed help vehicle drivers to check the fuel economy of their vehicle. Traditionally the drivers maintain a book to write down the Odometer value and fuel filled inorder to track the fuel economy of the vehicle. This is our solution using an Android application they can enter the details in the app and get the economy instantly.
+The Fuel Economy Tracker is an application developed to help vehicle drivers to check the fuel economy of their vehicle. Traditionally the drivers maintain a book to write down the Odometer value and fuel filled inorder to track the fuel economy of the vehicle. This is our solution using an Android application by which they can enter the details in the app and get the economy instantly.
 
 This Fuel Economy Tracker Application is a simple application which takes only Odometer reading, Fuel filled in liters and total cost for the fuel. The application can display the fuel economy and also display the approximate cost per km a driver has to spend on his travelling. 
 
