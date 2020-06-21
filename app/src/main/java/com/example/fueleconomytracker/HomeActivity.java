@@ -10,27 +10,33 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
+/*
+    This activity will handle the operation of the Home window.
+ */
 public class HomeActivity extends AppCompatActivity {
     Button addRecord;
     Button viewResult;
     Button updateRecord;
     Button deleteRecords;
-    SQLiteDatabase dataBase;
+
+    SQLiteDatabase dataBase; //DataBase object
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        //Hide the action bar.
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
 
+        //Initialize the components
         addRecord = (Button) findViewById(R.id.RecordAdd);
         viewResult = (Button) findViewById(R.id.viewResults);
         updateRecord = (Button) findViewById(R.id.updateRecord);
         deleteRecords = (Button) findViewById(R.id.deleteRecords);
 
+        //On click of add record button go to Main activity
         addRecord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -39,6 +45,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        //On click of view results go to statistics activity to display results.
         viewResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,6 +54,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        //On click Update Record go to update activity
         updateRecord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,9 +63,11 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        //On click of delete records delete all the entries present in the database.
         deleteRecords.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Create Alert Dialog and confirm if user wants to delete all  the data.
                 AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
                 builder.setTitle("Delete");
                 builder.setMessage("Are sure you want to delete all the records? These cannot be recovered again.");
@@ -81,7 +91,9 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
-
+    /*
+        A method to delete all data from the database.
+     */
     private void deleteAllData() {
         try{
             //Create a database if it not exists or open an existing database.
